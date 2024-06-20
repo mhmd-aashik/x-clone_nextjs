@@ -21,7 +21,7 @@ const News = () => {
           <Link href={article.url} target="_blank">
             <div className="flex items-center justify-between px-4 py-2 space-x-1 hover:bg-gray-700 rounded-md duration-200">
               <div className="space-y-1">
-                <h1 className="text-sm font-bold">{article.title}</h1>
+                <h1 className="text-sm font-bold line-clamp-2">{article.title}</h1>
                 <p className="text-xs font-medium text-gray-400">
                   {article.source.name}
                 </p>
@@ -31,6 +31,7 @@ const News = () => {
                 alt={article.title}
                 width={100}
                 height={100}
+                className="rounded-xl"
               />
             </div>
           </Link>

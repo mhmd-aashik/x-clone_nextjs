@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import SideBar from "@/components/SideBar";
-import News from "@/components/News";
+import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,25 +17,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="bg-black text-white">
-        <div className="flex justify-between max-w-7xl mx-auto">
-          <div className="hidden sm:inline border-r border-gray-300 h-screen">
-            <SideBar />
-          </div>
-          {children}
-          <div className="lg:flex-col p-3 h-screen border-l border-gray-300 hidden lg:flex w-[24rem]">
-            <div className="sticky top-0 bg-black py-2 ">
-              <input
-                type="text"
-                placeholder="Search"
-                className="bg-gray-900 border-none border-gray-300 rounded-3xl text-sm w-full px-4 py-3 focus:outline-none text-white placeholder:text-gray-100"
-              />
-            </div>
-            <News />
-          </div>
-        </div>
-      </body>
-    </html>
+    <ClerkProvider
+      appearance={{
+        baseTheme: dark,
+        elements: {
+          userButtonAvatarBox:{
+            width: 40,
+            height: 40,
+          }
+        },
+      }}
+    >
+      <html lang="en">
+        <body className="bg-black text-white">{children}</body>
+      </html>
+    </ClerkProvider>
   );
 }
