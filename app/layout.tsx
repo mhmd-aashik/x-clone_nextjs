@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import { dark } from "@clerk/themes";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "X - clone",
@@ -19,17 +15,16 @@ export default function RootLayout({
   return (
     <ClerkProvider
       appearance={{
-        baseTheme: dark,
         elements: {
-          userButtonAvatarBox:{
+          userButtonAvatarBox: {
             width: 40,
             height: 40,
-          }
+          },
         },
       }}
     >
       <html lang="en">
-        <body className="bg-black text-white">{children}</body>
+        <body className="bg-black text-white max-w-7xl mx-auto">{children}</body>
       </html>
     </ClerkProvider>
   );

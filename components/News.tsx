@@ -11,17 +11,18 @@ const News = () => {
       .then((response) => response.json())
       .then((data) => setNews(data.articles));
   }, []);
-  console.log(news);
 
   return (
-    <div className="text-gray-300 space-y-3 px-4 bg-gray-800 rounded-xl py-2">
+    <div className="text-gray-300 space-y-3 px-4 bg-gray-800 rounded-xl py-2 sticky top-0">
       <h4 className="font-bold  text-xl px-4">What&apos;s Happening</h4>
       {news.slice(0, articleNum).map((article) => (
         <div key={article.id}>
           <Link href={article.url} target="_blank">
             <div className="flex items-center justify-between px-4 py-2 space-x-1 hover:bg-gray-700 rounded-md duration-200">
               <div className="space-y-1">
-                <h1 className="text-sm font-bold line-clamp-2">{article.title}</h1>
+                <h1 className="text-sm font-bold line-clamp-2">
+                  {article.title}
+                </h1>
                 <p className="text-xs font-medium text-gray-400">
                   {article.source.name}
                 </p>

@@ -11,14 +11,11 @@ const SideBar = () => {
   const { signOut } = useClerk();
   const { isSignedIn, user, isLoaded } = useUser();
   if (!isLoaded) {
-    // Handle loading state however you like
     return null;
   }
 
-  console.log(user?.firstName);
-
   return (
-    <div className="flex flex-col gap-4 px-4">
+    <div className="flex flex-col gap-4 px-4 fixed top-0 h-screen">
       <div>
         <Link href="/">
           <FaXTwitter className="size-16 cursor-pointer p-3 hover:bg-gray-900 rounded-full transition-all duration-200 mb-2" />
@@ -53,13 +50,22 @@ const SideBar = () => {
             Sign Out
           </button>
         </SignedIn>
-        <Link href="/sign-in">
-          <SignedOut>
-            <button className="bg-blue-500 mt-3 text-white rounded-full hover:brightness-95 transition-all duration-200 w-48 h-12 shadow-md hidden xl:inline font-bold">
-              Sign In
-            </button>
-          </SignedOut>
-        </Link>
+        <div className="flex flex-col gap-2">
+          <Link href="/sign-up">
+            <SignedOut>
+              <button className="bg-gray-500 mt-3 text-white rounded-full hover:brightness-95 transition-all duration-200 w-48 h-12 shadow-md hidden xl:inline font-bold">
+                Sign Up
+              </button>
+            </SignedOut>
+          </Link>
+          <Link href="/sign-in">
+            <SignedOut>
+              <button className="bg-blue-500 mt-3 text-white rounded-full hover:brightness-95 transition-all duration-200 w-48 h-12 shadow-md hidden xl:inline font-bold">
+                Sign In
+              </button>
+            </SignedOut>
+          </Link>
+        </div>
       </div>
       {isSignedIn && (
         <div>
