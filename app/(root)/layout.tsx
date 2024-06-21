@@ -6,7 +6,7 @@ import React from "react";
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex justify-between max-w-7xl mx-auto">
-      <div className="hidden sm:inline border-r w-[30rem] border-gray-800">
+      <div className="sm:inline border-r md:w-[7rem] lg:w-[30rem] border-gray-800">
         <SideBar />
       </div>
       <div className="w-full">{children}</div>
