@@ -20,9 +20,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 className="bg-gray-900 border-none border-gray-800 rounded-3xl text-sm w-full px-4 py-3 focus:outline-none text-white placeholder:text-gray-100"
               />
               <div>
-                <SignedOut>
-                  <SignInButton />
-                </SignedOut>
                 <SignedIn>
                   <UserButton />
                 </SignedIn>
