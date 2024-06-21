@@ -1,15 +1,21 @@
 "use client";
 import { twitterLinks } from "@/constants";
-import { SignedIn, SignedOut, UserButton, useUser } from "@clerk/nextjs";
+import {
+  SignedIn,
+  SignedOut,
+  useClerk,
+  UserButton,
+  useUser,
+} from "@clerk/nextjs";
 import Link from "next/link";
 import React from "react";
 import { FaXTwitter } from "react-icons/fa6";
-import { useClerk } from "@clerk/nextjs";
 import Image from "next/image";
 
 const SideBar = () => {
-  const { signOut } = useClerk();
   const { isSignedIn, user, isLoaded } = useUser();
+  const { signOut } = useClerk();
+
   if (!isLoaded) {
     return null;
   }

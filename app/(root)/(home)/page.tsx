@@ -9,9 +9,9 @@ const Home = () => {
         <div className="py-2 px-3 sticky top-0 z-50 border-b border-1 bg-black border-gray-800">
           <h2 className="text-lg sm:text-xl font-bold bg-black">Home</h2>
         </div>
-
-        <Feed />
       </div>
+      <Input />
+      <Feed />
     </>
   );
 };

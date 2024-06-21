@@ -1,15 +1,15 @@
 import News from "@/components/News";
 import SideBar from "@/components/SideBar";
-import { SignedOut, SignInButton, SignedIn, UserButton } from "@clerk/nextjs";
+import { SignedIn, UserButton } from "@clerk/nextjs";
 import React from "react";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex justify-between max-w-7xl mx-auto">
-      <div className="hidden sm:inline border-r w-[20rem] border-gray-800">
+      <div className="hidden sm:inline border-r w-[30rem] border-gray-800">
         <SideBar />
       </div>
-      <div className="w-2xl">{children}</div>
+      <div className="w-full">{children}</div>
       <div className="lg:flex-col p-3 h-screen z-50 border-l border-gray-800 hidden lg:flex max-w-[25rem] sticky top-0">
         <div className="sticky top-0">
           <div className="bg-black py-2 ">

@@ -21,7 +21,7 @@ import { useRouter } from "next/navigation";
 
 const Input = () => {
   const router = useRouter();
-  const { isSignedIn, user } = useUser();
+  const { isLoaded, isSignedIn, user } = useUser();
   const [imageFileUrl, setImageFileUrl] = useState<any>(null);
   const [selectedFile, setSelectedFile] = useState<any>(null);
   // for loading effect
@@ -74,6 +74,8 @@ const Input = () => {
     );
   };
 
+  // console.log(user?.id);
+
   const handleSubmit = async () => {
     setPosting(true);
     const docRef: any = await addDoc(collection(db, "posts"), {
@@ -89,11 +91,13 @@ const Input = () => {
     setText("");
     setSelectedFile(null);
     setImageFileUrl(null);
-    // location.reload();
     router.refresh();
   };
 
-  if (!isSignedIn) return null;
+  if (!isLoaded || !isSignedIn) {
+    return null;
+  }
+
   return (
     <div className="flex border-b border-1 border-gray-800 p-3 space-x-3 w-full">
       <Image
